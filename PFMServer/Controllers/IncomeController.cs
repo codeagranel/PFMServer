@@ -16,6 +16,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Income/
 
+        [Authorize]
         public ActionResult Index()
         {
             try
@@ -24,7 +25,7 @@ namespace PFMServer.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ErrorMessage = ex;
+                System.Diagnostics.Trace.TraceError("Message :" + ex.Message + " StackTrace: " + ex.StackTrace);
                 return View();
             }
         }
@@ -32,6 +33,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Income/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             Income income = db.Incomes.Find(id);
@@ -45,6 +47,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Income/Create
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -53,6 +56,7 @@ namespace PFMServer.Controllers
         //
         // POST: /Income/Create
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Income income)
@@ -70,6 +74,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Income/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Income income = db.Incomes.Find(id);
@@ -84,6 +89,7 @@ namespace PFMServer.Controllers
         // POST: /Income/Edit/5
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Income income)
         {
@@ -99,6 +105,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Income/Delete/5
 
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Income income = db.Incomes.Find(id);
@@ -113,6 +120,7 @@ namespace PFMServer.Controllers
         // POST: /Income/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

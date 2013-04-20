@@ -16,6 +16,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Category/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
@@ -24,6 +25,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Category/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             Category category = db.Categories.Find(id);
@@ -37,6 +39,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Category/Create
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace PFMServer.Controllers
         // POST: /Category/Create
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Category category)
         {
@@ -62,6 +66,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Category/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Category category = db.Categories.Find(id);
@@ -76,6 +81,7 @@ namespace PFMServer.Controllers
         // POST: /Category/Edit/5
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Category category)
         {
@@ -91,6 +97,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Category/Delete/5
 
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Category category = db.Categories.Find(id);
@@ -105,6 +112,7 @@ namespace PFMServer.Controllers
         // POST: /Category/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -16,6 +16,7 @@ namespace PFMServer.Controllers
         //
         // GET: /MethodOfPayment/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.MethodOfPayments.ToList());
@@ -24,6 +25,7 @@ namespace PFMServer.Controllers
         //
         // GET: /MethodOfPayment/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             MethodOfPayment methodofpayment = db.MethodOfPayments.Find(id);
@@ -36,7 +38,7 @@ namespace PFMServer.Controllers
 
         //
         // GET: /MethodOfPayment/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,7 @@ namespace PFMServer.Controllers
         // POST: /MethodOfPayment/Create
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MethodOfPayment methodofpayment)
         {
@@ -62,6 +65,7 @@ namespace PFMServer.Controllers
         //
         // GET: /MethodOfPayment/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             MethodOfPayment methodofpayment = db.MethodOfPayments.Find(id);
@@ -76,6 +80,7 @@ namespace PFMServer.Controllers
         // POST: /MethodOfPayment/Edit/5
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MethodOfPayment methodofpayment)
         {
@@ -91,6 +96,7 @@ namespace PFMServer.Controllers
         //
         // GET: /MethodOfPayment/Delete/5
 
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             MethodOfPayment methodofpayment = db.MethodOfPayments.Find(id);
@@ -105,6 +111,7 @@ namespace PFMServer.Controllers
         // POST: /MethodOfPayment/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

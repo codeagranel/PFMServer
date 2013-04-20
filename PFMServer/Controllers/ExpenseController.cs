@@ -16,6 +16,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Expense/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Expenses.ToList());
@@ -24,6 +25,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Expense/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             Expense expense = db.Expenses.Find(id);
@@ -37,6 +39,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Expense/Create
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace PFMServer.Controllers
         // POST: /Expense/Create
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Expense expense)
         {
@@ -62,6 +66,7 @@ namespace PFMServer.Controllers
         //
         // GET: /Expense/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Expense expense = db.Expenses.Find(id);
@@ -76,6 +81,7 @@ namespace PFMServer.Controllers
         // POST: /Expense/Edit/5
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Expense expense)
         {
@@ -90,7 +96,8 @@ namespace PFMServer.Controllers
 
         //
         // GET: /Expense/Delete/5
-
+        
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Expense expense = db.Expenses.Find(id);
@@ -105,6 +112,7 @@ namespace PFMServer.Controllers
         // POST: /Expense/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
