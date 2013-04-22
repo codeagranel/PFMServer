@@ -10,7 +10,7 @@ namespace PFMServer.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "Suas finanças, de forma simples.";
 
             return View();
         }

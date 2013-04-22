@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PFMServer.Models;
+using WebMatrix.WebData;
 
 namespace PFMServer.Controllers
 {
@@ -19,7 +20,7 @@ namespace PFMServer.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList());
         }
 
         //
@@ -55,6 +56,7 @@ namespace PFMServer.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.UserId = WebSecurity.CurrentUserId;
                 db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");

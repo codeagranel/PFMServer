@@ -29,5 +29,7 @@ namespace PFMServer.Models
 
         public List<Category> Categories { get; set; }
         public MethodOfPayment MethodOfPayment { get; set; }
+
+        public int UserId { get; set; }
     }
 }

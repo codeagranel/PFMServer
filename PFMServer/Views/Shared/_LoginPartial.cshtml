@@ -1,14 +1,22 @@
-﻿@if (Request.IsAuthenticated) {
-    <text>
-        Olá, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Gerenciar" })!
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Logoff</a>
-        }
-    </text>
-} else {
-    <ul>
-        @*<li>@Html.ActionLink("Registre-se", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-        <li>@Html.ActionLink("Logon", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+﻿@if (Request.IsAuthenticated)
+{
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name<b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>@Html.ActionLink("Gerenciar conta", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i>Log off</a>
+            }
+        </li>
+    </ul>
+}
+else
+{
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li><a tabindex="-1" id="loginLink" href="@Url.Action("Login", "Account", routeValues: null)"><i class="icon-lock"></i>Login</a></li>
+        @*<li><a tabindex="-1" id="registerLink" href="@Url.Action("Register", "Account", routeValues: null)"><i class="icon-user"></i>Register</a></li>*@
     </ul>
 }

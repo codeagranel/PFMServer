@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PFMServer.Models;
+using WebMatrix.WebData;
 
 namespace PFMServer.Controllers
 {
@@ -19,7 +20,7 @@ namespace PFMServer.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.MethodOfPayments.ToList());
+            return View(db.MethodOfPayments.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList());
         }
 
         //
@@ -54,6 +55,7 @@ namespace PFMServer.Controllers
         {
             if (ModelState.IsValid)
             {
+                methodofpayment.UserId = WebSecurity.CurrentUserId;
                 db.MethodOfPayments.Add(methodofpayment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

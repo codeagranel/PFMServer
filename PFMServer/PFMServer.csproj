@@ -203,16 +203,28 @@
     <Compile Include="Migrations\201304190203209_dropCreateUserProfile.Designer.cs">
       <DependentUpon>201304190203209_dropCreateUserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304212340466_CreateUserIdColumn.cs" />
+    <Compile Include="Migrations\201304212340466_CreateUserIdColumn.Designer.cs">
+      <DependentUpon>201304212340466_CreateUserIdColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\MethodOfPayment.cs" />
+    <Compile Include="Models\NotAuthorizedException.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ExpenseViewModel.cs" />
+    <Compile Include="ViewModels\IncomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Custom.css" />
+    <Content Include="Content\themes\base\bootstrap-responsive.css" />
+    <Content Include="Content\themes\base\bootstrap.css" />
+    <Content Include="Content\themes\base\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\themes\base\images\glyphicons-halflings.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -241,6 +253,8 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\bootstrap-responsive.min.css" />
+    <Content Include="Content\themes\base\minified\bootstrap.min.css" />
     <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -272,6 +286,8 @@
     <None Include="Properties\PublishProfiles\pfmserver - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pfmserver - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -347,6 +363,7 @@
     <Content Include="Views\MethodOfPayment\Create.cshtml" />
     <Content Include="Views\MethodOfPayment\Edit.cshtml" />
     <Content Include="Views\MethodOfPayment\Delete.cshtml" />
+    <Content Include="Views\_AppStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201304190203209_dropCreateUserProfile.resx">
       <DependentUpon>201304190203209_dropCreateUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304212340466_CreateUserIdColumn.resx">
+      <DependentUpon>201304212340466_CreateUserIdColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

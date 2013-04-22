@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PFMServer.Models;
+using WebMatrix.WebData;
 
 namespace PFMServer.Controllers
 {
@@ -19,15 +20,7 @@ namespace PFMServer.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            try
-            {
-                return View(db.Incomes.ToList());
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.TraceError("Message :" + ex.Message + " StackTrace: " + ex.StackTrace);
-                return View();
-            }
+            return View(db.Incomes.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList());
         }
 
         //
@@ -63,6 +56,7 @@ namespace PFMServer.Controllers
         {
             if (ModelState.IsValid)
             {
+                income.UserId = WebSecurity.CurrentUserId;
                 db.Incomes.Add(income);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +76,7 @@ namespace PFMServer.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(income);
         }
 

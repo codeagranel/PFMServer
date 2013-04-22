@@ -8,7 +8,7 @@
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 
-<section id="loginForm">
+@*<section id="loginForm">
 <h2>Use uma conta local para fazer logon.</h2>
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
@@ -38,10 +38,9 @@
         @Html.ActionLink("Registrar", "Register") se você não tiver uma conta.
     </p>
 }
-</section>
+</section>*@
 
 <section class="social" id="socialLoginForm">
-    <h2>Use outro serviço para fazer logon.</h2>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 

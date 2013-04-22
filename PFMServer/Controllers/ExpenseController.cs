@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PFMServer.Models;
+using WebMatrix.WebData;
 
 namespace PFMServer.Controllers
 {
@@ -19,7 +20,7 @@ namespace PFMServer.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.Expenses.ToList());
+            return View(db.Expenses.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList());
         }
 
         //
@@ -42,6 +43,8 @@ namespace PFMServer.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.Categories = db.Categories.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList();
+            ViewBag.MethodsOfPayment = db.MethodOfPayments.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList();
             return View();
         }
 
@@ -55,6 +58,7 @@ namespace PFMServer.Controllers
         {
             if (ModelState.IsValid)
             {
+                expense.UserId = WebSecurity.CurrentUserId;
                 db.Expenses.Add(expense);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -74,6 +78,9 @@ namespace PFMServer.Controllers
             {
                 return HttpNotFound();
             }
+            
+            ViewBag.Categories = db.Categories.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList();
+            ViewBag.MethodsOfPayment = db.MethodOfPayments.Where(x => x.UserId == WebSecurity.CurrentUserId).ToList();
             return View(expense);
         }
 
