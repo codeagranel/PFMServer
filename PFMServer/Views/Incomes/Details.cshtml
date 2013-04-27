@@ -1,0 +1,71 @@
+﻿@model PFMServer.Models.Income
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Income</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsRecurrent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsRecurrent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Parcels)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Parcels)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsAlreadyPaid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsAlreadyPaid)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AuthorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AuthorId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IncomeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

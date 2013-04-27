@@ -33,16 +33,17 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gerenciar<b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                    <li>@Html.ActionLink("Receitas", "Index", "Income")</li>
-                                    <li>@Html.ActionLink("Despesas", "Index", "Expense")</li>
-                                    <li>@Html.ActionLink("Categorias", "Index", "Category")</li>
-                                    <li>@Html.ActionLink("Formas de pagamento", "Index", "MethodOfPayment")</li>
+                                    <li>@Html.ActionLink("Receitas", "Index", "Incomes")</li>
+                                    <li>@Html.ActionLink("Despesas", "Index", "Expenses")</li>
+                                    <li>@Html.ActionLink("Tipos de Receita", "Index", "IncomeTypes")</li>
+                                    <li>@Html.ActionLink("Tipos de Despesa", "Index", "ExpenseTypes")</li>
+                                    <li>@Html.ActionLink("Formas de pagamento", "Index", "MethodsOfPayment")</li>
                                 </ul>
-                            </li>
+                                </li>
                             @*<li>@Html.ActionLink("Sobre", "About", "Home")</li>*@
-                            <li class="dropdown">
-                                @Html.Partial("_LoginPartial")
-                            </li>
+                        <li class="dropdown">
+                            @Html.Partial("_LoginPartial")
+                        </li>
                         </ul>
                     </div>
                 </div>

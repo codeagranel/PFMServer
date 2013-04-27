@@ -5,20 +5,18 @@ using System.Web;
 
 namespace PFMServer.Models
 {
-    public class MethodOfPayment
+    public class ExpenseType
     {
-        public MethodOfPayment()
+        public ExpenseType()
         {
-            this.Incomes = new HashSet<Income>();
             this.Expenses = new HashSet<Expense>();
         }
 
-        public int MethodOfPaymentId { get; set; }
+        public int ExpenseTypeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public Nullable<int> AuthorId { get; set; }
 
-        public virtual ICollection<Income> Incomes { get; set; }
         public virtual ICollection<Expense> Expenses { get; set; }
     }
 }
